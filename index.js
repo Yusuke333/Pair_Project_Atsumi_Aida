@@ -24,7 +24,7 @@ class PokemonData {
     return;
   }
 
-  addInfo() { }
+  addInfo() {}
 
   async addCP() {
     const url = `https://pokeapi.co/api/v2/pokemon/?limit=1200`;
@@ -65,9 +65,9 @@ class PokemonData {
     const index = this.getRandomIndexForPokemon(sortedArray);
 
     this.findPokemon(sortedArray[index].name).then(() => {
-      alert(
-        `ポケモン（英）：${sortedArray[index].name},強さ： ${sortedArray[index].CP}`
-      );
+      //   alert(
+      //     `ポケモン（英）：${sortedArray[index].name},強さ： ${sortedArray[index].CP}`
+      //   );
     });
   }
 
@@ -118,9 +118,10 @@ class PokemonData {
     canvasSpecialDefense.innerHTML = "とくぼう　" + status[4].base_stat;
 
     const detailText = species.flavor_text_entries;
+    console.log(detailText);
 
-    let flavorText = await detailText.filter(function (v) {
-      return v.language.name == "ja" && v.version.name == "sword";
+    let flavorText = detailText.filter(function (v) {
+      return v.language.name == "ja";
     })[0].flavor_text;
 
     let canvasCharacter = document.getElementById("character");
@@ -184,7 +185,7 @@ class Gacha {
     for (const btn of btnElems) {
       if (btn.type == "button") {
         btn.addEventListener("click", (e) => {
-          this.pushMoneyButton(e)
+          this.pushMoneyButton(e);
         });
         // console.log(btn.type);
       }
@@ -196,10 +197,10 @@ class Gacha {
       // console.log(btn.getAttribute("price"));
       const price = btn.getAttribute("price");
       btn.addEventListener("click", (e) => {
-        if(this.reduceMyMoney(price)){
+        if (this.reduceMyMoney(price)) {
           this.fallBall(price);
-          this.pokeIns.choosePokemon(price)
-        }else {
+          this.pokeIns.choosePokemon(price);
+        } else {
           alert("お金が足りません");
         }
       });
@@ -208,7 +209,7 @@ class Gacha {
     // console.log(btnElems.childNodes);
   }
 
-  sequenceOfGame() { }
+  sequenceOfGame() {}
 
   async getPokemonAction() {
     const getPokemon = await findPokemon(0);
@@ -224,12 +225,12 @@ class Gacha {
 
   reduceMyMoney(val) {
     const moneyWindow = document.querySelector("#money");
-    if(this.myMoney >= Number(val)){
+    if (this.myMoney >= Number(val)) {
       this.myMoney -= Number(val);
       moneyWindow.innerText = this.myMoney + "円";
       return true;
     }
-    return false
+    return false;
   }
 
   fallBall(price) {
@@ -237,24 +238,21 @@ class Gacha {
     const fallSpeed = 5;
 
     const setBall = setInterval(() => {
-
       if (ballPosition > 200) {
         window.clearInterval(setBall);
         const clearBall = setTimeout(() => {
           const ballImg = document.querySelector(`#ball${price}`);
-          ballImg.style.display = "none"
+          ballImg.style.display = "none";
         }, 1000);
       }
 
       const ballImg = document.querySelector(`#ball${price}`);
-      ballImg.style.display = "block"
+      ballImg.style.display = "block";
 
       ballPosition += fallSpeed;
       ballImg.style.top = ballPosition + "px";
-
-    }, 10)
+    }, 10);
   }
-
 }
 
 // console.log(allPokemon);

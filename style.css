@@ -2,7 +2,7 @@
 
 #header {
   width: 100%;
-  height: 100px;
+  height: 80px;
   text-align: center;
   background-color: rgb(0, 0, 0);
   color: #fff;
@@ -13,23 +13,34 @@
 .container {
   display: flex;
   width: 100%;
-  height: 600px;
+  /* height: 1000px; */
 }
 
 .localNavigation {
   width: 10%;
   height: 80%;
-  background-color: rgb(0, 0, 0);
+  background-color:black;
   color: #fff;
+}
+
+.inner {
+width: 100%;
+display: flex;
+border: solid black 4px;
+margin-top: 10px;
+margin-bottom: 60px;
+border-radius: 10px;
+box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
 }
 
 .content {
   display: flex;
   flex-wrap: wrap;
   width: 60%;
-  height: auto;
-  background-color: rgb(112, 207, 255);
-  margin-top: 0px;
+  /* height: auto; */
+  background-color: white(112, 207, 255);
+  
+  margin-right: 10px;
   margin-bottom: 0px;
 }
 
@@ -37,16 +48,19 @@
   display: flex;
   flex-wrap: wrap;
   width: 40%;
-  height: auto;
-  background-color: rgb(112, 207, 255);
-  margin-top: 0px;
-  margin-bottom: 0px;
+  /* height: auto; */
+  background-color: gold;
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .footerGrovalNavigation {
   bottom: 0;
   width: 100%;
-  height: 80px;
+  height: 50px;
   background-color: rgb(0, 0, 0);
   margin-top: auto;
   color: #fff;
@@ -63,14 +77,19 @@ body {
 #gacha {
   display: flex;
   flex-wrap: wrap;
-  width: 48%;
-  height: 460px;
+  width: 31%;
+  height: 400px;
   margin: 1%;
-  background-color: rgb(0, 0, 0);
+  /* background-color: rgb(76, 195, 227); */
   border-radius: 10px;
+  
 }
 
-#img {
+.pricedata {
+  margin: 0 auto;
+}
+
+.imgWindow{
   width: 90%;
   /* margin: 5%; */
   margin: 0 auto;
@@ -78,22 +97,52 @@ body {
   height: 70%;
   background-color: rgb(255, 255, 255);
   margin-bottom: 0px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.ballImg{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+  position: absolute;
+  left: 25%;
+  /* top: 0px;200px */
+}
+
+.low {
+  background-color: red;
+}
+
+.mid {
+  background-color: green;
+}
+
+.high {
+  background-color: blue;
+}
+
+#img {
+  
 }
 
 #money {
-  margin: 1%;
-  width: 100%;
+  margin: 0 auto;
+  width: 50%;
   height: 30px;
-  background-color: rgb(0, 0, 0);
-  color: #fff;
+  background-color: white(0, 0, 0);
+  color: black;
   text-align: center;
+  border: 1px solid;
+  border-radius: 10px;
 }
 
 #button {
   margin-right: auto;
   margin-left: auto;
-  /* margin-bottom: auto;
-  margin-top: auto; */
+  /* margin-bottom: auto; */
+   
   font-size: 100%;
   border-radius: 50%;
   width: 60px;
@@ -103,14 +152,17 @@ body {
   display: block;
 }
 #moneyButton {
+  margin-top: 10px;
   display: flex;
   width: 100%;
-
+background-color: rgb(164, 170, 176);
   padding: 10px;
+  border-radius: 5px;
 }
 
 .gachaBtnArea {
   width: 100%;
+  border-radius: 10px;
   /* margin: auto auto; */
 }
 
@@ -119,18 +171,18 @@ body {
   display: flex;
   width: 95%;
   height: 50%;
-  background-color: rgb(13, 255, 0);
-  margin-top: 0px;
-  margin-bottom: 0px;
+  /* background-color: rgb(13, 255, 0); */
+  margin: 0 auto;
+  margin-top: 5px;
 }
 #down {
   display: flex;
   flex-wrap: wrap;
   width: 95%;
   height: 50%;
-  background-color: rgb(13, 255, 0);
-  margin-top: 0px;
-  margin-bottom: 0px;
+  /* background-color: rgb(13, 255, 0); */
+  margin: 0 auto;
+  margin-bottom: 5px;
 }
 
 /* ステータスレイアウト階層2 up*/

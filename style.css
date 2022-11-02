@@ -225,7 +225,7 @@ body {
   margin: 1%;
 }
 
-#specDetail {
+.specDetail {
   display: flex;
   flex-wrap: wrap;
   width: 98%;

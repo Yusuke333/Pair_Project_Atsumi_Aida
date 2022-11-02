@@ -63,10 +63,12 @@ class PokemonData {
         break;
     }
     const index = this.getRandomIndexForPokemon(sortedArray);
-    alert(
-      `ポケモン（英）：${sortedArray[index].name},強さ： ${sortedArray[index].CP}`
-    );
-    return sortedArray[index].name;
+
+    this.findPokemon(sortedArray[index].name).then(() => {
+      alert(
+        `ポケモン（英）：${sortedArray[index].name},強さ： ${sortedArray[index].CP}`
+      );
+    });
   }
 
   getRandomIndexForPokemon(targetArray) {
@@ -90,8 +92,8 @@ class PokemonData {
       return;
     }
 
-    //const pokemon = await fetch(url)
-    const pokemon = await fetch(returnArray[index])
+    const pokemon = await fetch(url)
+      // const pokemon = await fetch(returnArray[index])
       .then((res) => res.json())
       .then((jres) => jres);
 
@@ -101,12 +103,28 @@ class PokemonData {
 
     const status = pokemon.stats;
     console.log(status);
+    console.log(status[1]);
+
+    let canvasHp = document.getElementById("HP");
+    canvasHp.innerHTML =
+      "HP: " + status[0].base_stat + " / " + status[0].base_stat;
+    let canvasAttack = document.getElementById("attack");
+    canvasAttack.innerHTML = "こうげき　" + status[1].base_stat;
+    let canvasDefense = document.getElementById("defense");
+    canvasDefense.innerHTML = "ぼうぎょ　" + status[2].base_stat;
+    let canvasSpecialAttack = document.getElementById("special-attack");
+    canvasSpecialAttack.innerHTML = "とくこう　" + status[3].base_stat;
+    let canvasSpecialDefense = document.getElementById("special-defense");
+    canvasSpecialDefense.innerHTML = "とくぼう　" + status[4].base_stat;
 
     const detailText = species.flavor_text_entries;
 
-    let flavorText = detailText.filter(function (v) {
+    let flavorText = await detailText.filter(function (v) {
       return v.language.name == "ja" && v.version.name == "sword";
     })[0].flavor_text;
+
+    let canvasCharacter = document.getElementById("character");
+    canvasCharacter.innerHTML = flavorText;
 
     console.log(species);
 
@@ -114,6 +132,8 @@ class PokemonData {
       (namePoke) => namePoke.language.name === "ja"
     )[0].name;
     console.log(nameJa);
+    let canvasName = document.getElementById("Name");
+    canvasName.innerHTML = nameJa;
 
     //〇〇ポケモン
     const generaJa = species.genera.filter(
@@ -123,13 +143,21 @@ class PokemonData {
 
     const imgUrl = pokemon.sprites.front_default;
     console.log(imgUrl);
+    let imgElement = document.getElementById("pic");
+    imgElement.src = imgUrl;
+
     // front_default
 
     pokemon.detainlText = flavorText;
 
+    let canvasNo = document.getElementById("no");
+    canvasNo.innerHTML = "No. " + pokemon.id;
+
     console.log(flavorText);
 
     console.log(pokemon);
+    // console.log(pokemon.id);
+
     return pokemon;
   }
 
@@ -187,8 +215,8 @@ class Gacha {
 }
 
 // console.log(allPokemon);
-const p = new PokemonData();
-p.findPokemon(10).then((res) => console.log(res));
+// const p = new PokemonData();
+// p.findPokemon(10).then((res) => console.log(res));
 // p.addCP().then(res => console.log(res))
 // p.test("bulbasaur").then(res => console.log(res))
 

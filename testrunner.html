@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Jasmine Spec Runner</title>
+
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine_favicon.png" />
+    <link rel="stylesheet" href="lib/jasmine.css" />
+    <script src="lib/jasmine.js"></script>
+    <script src="lib/jasmine.js"></script>
+    <script src="lib/jasmine-html.js"></script>
+    <script src="lib/boot.js"></script>
+
+    <script>
+      jasmine.getEnv().addReporter({
+        jasmineDone: function(runDetails) {
+          if (
+            _.isUndefined(
+              _.findWhere(jsApiReporter.specs(), { status: "failed" })
+            )
+          ) {
+            setTimeout(() => {
+              window.alert("yay!");
+            }, 500);
+          }
+        }
+      });
+    </script>
+    <script src="src/closures.js"></script>
+    <script src="specs/tests.js"></script>
+  </head>
+
+  <body>
+    <h1>DIG</h1>
+  </body>
+</html>

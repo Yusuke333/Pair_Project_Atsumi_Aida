@@ -48,8 +48,9 @@ class PokemonData {
   }
 
   choosePokemon(mode) {
+    console.log(mode);
     let sortedArray;
-    switch (mode) {
+    switch (Number(mode)) {
       case 100:
         sortedArray = allPokemons;
         break;
@@ -57,11 +58,13 @@ class PokemonData {
         sortedArray = this.sort().slice(0, allPokemons.length / 2);
         break;
       case 10000:
+        console.log("test");
         sortedArray = this.sort().slice(0, allPokemons.length / 100);
         break;
     }
     const index = this.getRandomIndexForPokemon(sortedArray);
-    return sortedArray[index];
+    alert(`${sortedArray[index].name}, ${sortedArray[index].CP}`);
+    return sortedArray[index].name;
   }
 
   getRandomIndexForPokemon(targetArray) {
@@ -137,17 +140,54 @@ class PokemonData {
 
 class Gacha {
   constructor() {
-    this.myMoney;
+    this.myMoney = 0;
+    console.log(this.myMoney);
+    this.pokeIns = new PokemonData();
   }
+
+  init() {
+    //金額投入ボタン
+    const btnElems = document.querySelectorAll("#moneyButton")[0].childNodes;
+    for (const btn of btnElems) {
+      if (btn.type == "button") {
+        btn.addEventListener("click", (e) => this.pushMoneyButton(e));
+        // console.log(btn.type);
+      }
+    }
+
+    //商品ボタンプッシュ
+    const gachaBtnElems = document.querySelectorAll(".gachaBtn");
+    for (const btn of gachaBtnElems) {
+      // console.log(btn.getAttribute("price"));
+      const price = btn.getAttribute("price");
+      btn.addEventListener("click", (e) => this.pokeIns.choosePokemon(price));
+    }
+
+    // console.log(btnElems.childNodes);
+  }
+
+  sequenceOfGame() {}
 
   async getPokemonAction() {
     const getPokemon = await findPokemon(0);
   }
+
+  pushMoneyButton(e) {
+    console.log(this);
+    const moneyWindow = document.querySelector("#money");
+    this.myMoney += Number(e.target.value);
+    console.log(this.myMoney, Number(e.target.value));
+    moneyWindow.innerText = this.myMoney + "円";
+  }
 }
+
 // console.log(allPokemon);
 const p = new PokemonData();
 // p.findPokemon(10).then(res => console.log(res))
 // p.addCP().then(res => console.log(res))
 // p.test("bulbasaur").then(res => console.log(res))
 
-console.log(p.choosePokemon(10000));
+// console.log(p.choosePokemon(10000));
+
+const gacha = new Gacha();
+gacha.init();

@@ -1,61 +1,70 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8"/>
-  <title>ボケモンガチャ</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="index.js"></script>
+    <meta charset="utf-8" />
+    <title>ボケモンガチャ</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script src="index.js"></script> -->
 </head>
 
 <body>
 
-  <header id = "header" class="headerGrovalNavigation">
-    <h1 id="headerGroval">ガチャガチャ</h1>
-  </header>
+    <header id="header" class="headerGrovalNavigation">
+        <h1 id="headerGroval">ガチャガチャ</h1>
+    </header>
 
-  <div class="container">
-    <div class="localNavigation"></div>
-      
-    <div class="content">
-      <div id="gacha">
-        <div id="img"></div>
-        <input type="button" id="button" onclick="buttonClick()" value="Push!" > </input>
-      </div>
-      <div id="gacha">
-        <div id="img"></div>
-        <input type="button"  id="button" onclick="buttonClick()" value="Push!" > </input>
-      </div>
-          
-      <div id="gacha">
-        <div id="img"></div>
-        <input type="button"  id="button" onclick="buttonClick()" value="Push!" > </input>
-      </div>
-          
-      <div id="money">300円</div>
-          
-      <div id="moneyButton">
-        <input type="button"  id="button" onclick="buttonClick()" value="1000" > </input>
-        <input type="button"  id="button" onclick="buttonClick()" value="100" > </input>
-        <input type="button"  id="button" onclick="buttonClick()" value="10" > </input>
-      </div>
-          
-          
+    <div class="container">
+        <div class="localNavigation"></div>
+
+        <div class="content">
+            <div id="gacha">
+                <div id="img"></div>
+                <div class = "gachaBtnArea">
+                    <input type="button" class="gachaBtn" id="button" price="100" value="Push!"></input>
+                </div>
+            </div>
+            <div id="gacha">
+                <div id="img"></div>
+                <div class = "gachaBtnArea">
+                    <input type="button" class="gachaBtn" id="button" price="1000" value="Push!"> </input>
+                </div>
+            </div>
+
+            <div id="gacha">
+                <div id="img"></div>
+                <div class = "gachaBtnArea">
+                    <input type="button" class="gachaBtn" id="button" price="10000" value="Push!"> </input>
+                </div>
+            </div>
+
+            <div id="money">0円</div>
+
+            <div id="moneyButton">
+                <input type="button" id="button" value="10000"> </input>
+                <input type="button" id="button" value="1000"> </input>
+                <input type="button" id="button" value="100"> </input>
+            </div>
+
+
+        </div>
+
+        <div class="content">
+            <h1 id="headerGroval">詳細</h1>
+        </div>
+
+        <div class="localNavigation"></div>
     </div>
-      
-    <div class="content">
-      <h1 id="headerGroval">詳細</h1>
-    </div>
-      
-    <div class="localNavigation"></div>
-  </div>
 
 
-  <footer class="footerGrovalNavigation">
-  </footer>
-  
+    <footer class="footerGrovalNavigation">
+    </footer>
+
 </body>
+
 </html>
 
 <script src="./pokemonData.js"></script>
 <script src="./index.js"></script>
+
 </html>

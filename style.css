@@ -13,6 +13,7 @@
 .container {
   display: flex;
   width: 100%;
+  height: 600px;
 }
 
 .localNavigation {
@@ -63,7 +64,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 48%;
-  height: 300px;
+  height: 460px;
   margin: 1%;
   background-color: rgb(0, 0, 0);
   border-radius: 10px;

@@ -63,7 +63,9 @@ class PokemonData {
         break;
     }
     const index = this.getRandomIndexForPokemon(sortedArray);
-    alert(`${sortedArray[index].name}, ${sortedArray[index].CP}`);
+    alert(
+      `ポケモン（英）：${sortedArray[index].name},強さ： ${sortedArray[index].CP}`
+    );
     return sortedArray[index].name;
   }
 
@@ -96,6 +98,9 @@ class PokemonData {
     const species = await fetch(pokemon.species.url)
       .then((res) => res.json())
       .then((jres) => jres);
+
+    const status = pokemon.stats;
+    console.log(status);
 
     const detailText = species.flavor_text_entries;
 
@@ -183,7 +188,7 @@ class Gacha {
 
 // console.log(allPokemon);
 const p = new PokemonData();
-// p.findPokemon(10).then(res => console.log(res))
+p.findPokemon(10).then((res) => console.log(res));
 // p.addCP().then(res => console.log(res))
 // p.test("bulbasaur").then(res => console.log(res))
 

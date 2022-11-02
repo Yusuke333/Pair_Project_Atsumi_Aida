@@ -24,7 +24,7 @@ class PokemonData {
     return;
   }
 
-  addInfo() {}
+  addInfo() { }
 
   async addCP() {
     const url = `https://pokeapi.co/api/v2/pokemon/?limit=1200`;
@@ -155,7 +155,9 @@ class Gacha {
     const btnElems = document.querySelectorAll("#moneyButton")[0].childNodes;
     for (const btn of btnElems) {
       if (btn.type == "button") {
-        btn.addEventListener("click", (e) => this.pushMoneyButton(e));
+        btn.addEventListener("click", (e) => {
+          this.pushMoneyButton(e)
+        });
         // console.log(btn.type);
       }
     }
@@ -165,25 +167,66 @@ class Gacha {
     for (const btn of gachaBtnElems) {
       // console.log(btn.getAttribute("price"));
       const price = btn.getAttribute("price");
-      btn.addEventListener("click", (e) => this.pokeIns.choosePokemon(price));
+      btn.addEventListener("click", (e) => {
+        if(this.reduceMyMoney(price)){
+          this.fallBall(price);
+          this.pokeIns.choosePokemon(price)
+        }else {
+          alert("お金が足りません");
+        }
+      });
     }
 
     // console.log(btnElems.childNodes);
   }
 
-  sequenceOfGame() {}
+  sequenceOfGame() { }
 
   async getPokemonAction() {
     const getPokemon = await findPokemon(0);
   }
 
   pushMoneyButton(e) {
-    console.log(this);
+    // console.log(this);
     const moneyWindow = document.querySelector("#money");
     this.myMoney += Number(e.target.value);
-    console.log(this.myMoney, Number(e.target.value));
+
     moneyWindow.innerText = this.myMoney + "円";
   }
+
+  reduceMyMoney(val) {
+    const moneyWindow = document.querySelector("#money");
+    if(this.myMoney >= Number(val)){
+      this.myMoney -= Number(val);
+      moneyWindow.innerText = this.myMoney + "円";
+      return true;
+    }
+    return false
+  }
+
+  fallBall(price) {
+    let ballPosition = 0;
+    const fallSpeed = 5;
+
+    const setBall = setInterval(() => {
+
+      if (ballPosition > 200) {
+        window.clearInterval(setBall);
+        const clearBall = setTimeout(() => {
+          const ballImg = document.querySelector(`#ball${price}`);
+          ballImg.style.display = "none"
+        }, 1000);
+      }
+
+      const ballImg = document.querySelector(`#ball${price}`);
+      ballImg.style.display = "block"
+
+      ballPosition += fallSpeed;
+      ballImg.style.top = ballPosition + "px";
+
+    }, 10)
+  }
+
 }
 
 // console.log(allPokemon);

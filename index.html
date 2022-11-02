@@ -17,51 +17,62 @@
   <div class="container">
     <div class="localNavigation"></div>
 
-    <div class="content">
-      <div id="gacha">
-        <div id="img"></div>
-        <div class="gachaBtnArea">
-          <input type="button" id="button" class="gachaBtn" price="100" value="Push!"> </input>
+    <div class="inner">
+
+
+      <div class="content">
+        <div id="gacha" class="low">
+          <!-- <div class="pricedata">100円です</div> -->
+          <div class="imgWindow"><img class="ballImg" id="ball100" src="./img/ball.png" alt=""></div>
+          <div class="gachaBtnArea" >
+            <input type="button" id="button" class="gachaBtn" price="100" value="Push!"> </input>
+          </div>
         </div>
-      </div>
-      <div id="gacha">
-        <div id="img"></div>
-        <div class="gachaBtnArea">
-          <input type="button" id="button" class="gachaBtn" price="1000" value="Push!"> </input>
+        <div id="gacha" class="mid">
+          <div class="imgWindow"><img class="ballImg" id="ball1000" src="./img/ball.png" alt=""></div>
+          <div class="gachaBtnArea">
+            <input type="button" id="button" class="gachaBtn" price="1000" value="Push!"> </input>
+          </div>
+        </div>
+        <div id="gacha" class="high">
+          <div class="imgWindow"><img class="ballImg" id="ball10000" src="./img/ball.png" alt=""></div>
+          <div class="gachaBtnArea">
+            <input type="button" id="button" class="gachaBtn" price="10000" value="Push!"> </input>
+          </div>
+        </div>
+
+        <div id="money">0円</div>
+
+        <div id="moneyButton">
+          <input type="button" id="button" value="10000"> </input>
+          <input type="button" id="button" value="1000"> </input>
+          <input type="button" id="button" value="100"> </input>
         </div>
       </div>
 
-      <div id="money">0円</div>
-
-      <div id="moneyButton">
-        <input type="button" id="button" value="1000"> </input>
-        <input type="button" id="button" value="100"> </input>
-        <input type="button" id="button" value="10"> </input>
-      </div>
-    </div>
-
-    <div class="content2">
-      <div id="up">
-        <div id="picNo">
-          <div id="pic"></div>
-          <div id="no"></div>
+      <div class="content2">
+        <div id="up">
+          <div id="picNo">
+            <div id="pic"></div>
+            <div id="no"></div>
+          </div>
+          <div id="NameHP">
+            <div id="Name"></div>
+            <div id="HP"></div>
+            <div id="status"></div>
+          </div>
         </div>
-        <div id="NameHP">
-          <div id="Name"></div>
-          <div id="HP"></div>
-          <div id="status"></div>
-        </div>
-      </div>
-      <div id="down">
-        <div id="spec">
-          <div id="specDetail"></div>
-          <div id="specDetail"></div>
-          <div id="specDetail"></div>
-          <div id="specDetail"></div>
-        </div>
-        <div id="characterOtherwise">
-          <div id="character">説明</div>
-          <div id="otherwise">空白</div>
+        <div id="down">
+          <div id="spec">
+            <div id="specDetail"></div>
+            <div id="specDetail"></div>
+            <div id="specDetail"></div>
+            <div id="specDetail"></div>
+          </div>
+          <div id="characterOtherwise">
+            <div id="character">説明</div>
+            <div id="otherwise">空白</div>
+          </div>
         </div>
       </div>
     </div>

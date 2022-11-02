@@ -19,18 +19,18 @@
 .localNavigation {
   width: 10%;
   height: 80%;
-  background-color:black;
+  background-color: black;
   color: #fff;
 }
 
 .inner {
-width: 100%;
-display: flex;
-border: solid black 4px;
-margin-top: 10px;
-margin-bottom: 60px;
-border-radius: 10px;
-box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+  width: 100%;
+  display: flex;
+  border: solid black 4px;
+  margin-top: 10px;
+  margin-bottom: 60px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.5);
 }
 
 .content {
@@ -39,7 +39,7 @@ box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
   width: 60%;
   /* height: auto; */
   background-color: white(112, 207, 255);
-  
+
   margin-right: 10px;
   margin-bottom: 0px;
 }
@@ -82,14 +82,13 @@ body {
   margin: 1%;
   /* background-color: rgb(76, 195, 227); */
   border-radius: 10px;
-  
 }
 
 .pricedata {
   margin: 0 auto;
 }
 
-.imgWindow{
+.imgWindow {
   width: 90%;
   /* margin: 5%; */
   margin: 0 auto;
@@ -101,7 +100,7 @@ body {
   position: relative;
 }
 
-.ballImg{
+.ballImg {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -124,7 +123,6 @@ body {
 }
 
 #img {
-  
 }
 
 #money {
@@ -142,7 +140,7 @@ body {
   margin-right: auto;
   margin-left: auto;
   /* margin-bottom: auto; */
-   
+
   font-size: 100%;
   border-radius: 50%;
   width: 60px;
@@ -155,7 +153,7 @@ body {
   margin-top: 10px;
   display: flex;
   width: 100%;
-background-color: rgb(164, 170, 176);
+  background-color: rgb(164, 170, 176);
   padding: 10px;
   border-radius: 5px;
 }

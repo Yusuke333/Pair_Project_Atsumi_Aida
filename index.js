@@ -65,9 +65,9 @@ class PokemonData {
     const index = this.getRandomIndexForPokemon(sortedArray);
 
     this.findPokemon(sortedArray[index].name).then(() => {
-      alert(
-        `ポケモン（英）：${sortedArray[index].name},強さ： ${sortedArray[index].CP}`
-      );
+      // alert(
+      //   `ポケモン（英）：${sortedArray[index].name},強さ： ${sortedArray[index].CP}`
+      // );
     });
   }
 

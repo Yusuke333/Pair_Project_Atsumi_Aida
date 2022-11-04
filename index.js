@@ -24,7 +24,7 @@ class PokemonData {
     return;
   }
 
-  addInfo() {}
+  addInfo() { }
 
   async addCP() {
     const url = `https://pokeapi.co/api/v2/pokemon/?limit=1200`;
@@ -47,20 +47,25 @@ class PokemonData {
     return tempPokemonArray;
   }
 
-  choosePokemon(mode) {
-    console.log(mode);
+  choosePokemon(mode, gacha) {
+    console.log(gacha);
     let sortedArray;
-    switch (Number(mode)) {
-      case 100:
-        sortedArray = allPokemons;
-        break;
-      case 1000:
-        sortedArray = this.sort().slice(0, allPokemons.length / 2);
-        break;
-      case 10000:
-        console.log("test");
-        sortedArray = this.sort().slice(0, allPokemons.length / 100);
-        break;
+
+    if (gacha.myMoney !== 11000) {
+      switch (Number(mode)) {
+        case 100:
+          sortedArray = allPokemons;
+          break;
+        case 1000:
+          sortedArray = this.sort().slice(0, allPokemons.length / 2);
+          break;
+        case 10000:
+          console.log("test");
+          sortedArray = this.sort().slice(0, allPokemons.length / 100);
+          break;
+      }
+    } else {
+      sortedArray = this.sort().slice(0, 1);
     }
     const index = this.getRandomIndexForPokemon(sortedArray);
 
@@ -77,20 +82,21 @@ class PokemonData {
   }
 
   async findPokemon(index) {
-    const namedUrl = `https://pokeapi.co/api/v2/pokemon/?limit=1200`;
+
+    // const namedUrl = `https://pokeapi.co/api/v2/pokemon/?limit=1200`;
 
     const url = `https://pokeapi.co/api/v2/pokemon/${index}`;
 
-    const returnArray = await fetch(namedUrl)
-      .then((res) => res.json())
-      .then((jres) => {
-        return jres.results.map((pokemon) => pokemon.url);
-      })
-      .catch((err) => console.log("err:", err));
+    // const returnArray = await fetch(namedUrl)
+    //   .then((res) => res.json())
+    //   .then((jres) => {
+    //     return jres.results.map((pokemon) => pokemon.url);
+    //   })
+    //   .catch((err) => console.log("err:", err));
 
-    if (!returnArray) {
-      return;
-    }
+    // if (!returnArray) {
+    //   return;
+    // }
 
     const pokemon = await fetch(url)
       // const pokemon = await fetch(returnArray[index])
@@ -199,7 +205,7 @@ class Gacha {
       btn.addEventListener("click", (e) => {
         if (this.reduceMyMoney(price)) {
           this.fallBall(price);
-          this.pokeIns.choosePokemon(price);
+          this.pokeIns.choosePokemon(price, this);
         } else {
           alert("お金が足りません");
         }
@@ -209,7 +215,7 @@ class Gacha {
     // console.log(btnElems.childNodes);
   }
 
-  sequenceOfGame() {}
+  sequenceOfGame() { }
 
   async getPokemonAction() {
     const getPokemon = await findPokemon(0);

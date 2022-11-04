@@ -24,7 +24,7 @@ class PokemonData {
     return;
   }
 
-  addInfo() { }
+  addInfo() {}
 
   async addCP() {
     const url = `https://pokeapi.co/api/v2/pokemon/?limit=1200`;
@@ -82,7 +82,6 @@ class PokemonData {
   }
 
   async findPokemon(index) {
-
     // const namedUrl = `https://pokeapi.co/api/v2/pokemon/?limit=1200`;
 
     const url = `https://pokeapi.co/api/v2/pokemon/${index}`;
@@ -215,7 +214,7 @@ class Gacha {
     // console.log(btnElems.childNodes);
   }
 
-  sequenceOfGame() { }
+  sequenceOfGame() {}
 
   async getPokemonAction() {
     const getPokemon = await findPokemon(0);

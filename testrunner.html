@@ -13,7 +13,7 @@
 
     <script>
       jasmine.getEnv().addReporter({
-        jasmineDone: function(runDetails) {
+        jasmineDone: function (runDetails) {
           if (
             _.isUndefined(
               _.findWhere(jsApiReporter.specs(), { status: "failed" })
@@ -23,10 +23,10 @@
               window.alert("yay!");
             }, 500);
           }
-        }
+        },
       });
     </script>
-    <script src="src/closures.js"></script>
+    <script src="./index.js"></script>
     <script src="specs/tests.js"></script>
   </head>
 

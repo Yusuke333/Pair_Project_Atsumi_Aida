@@ -1,13 +1,12 @@
 /* exported counterGenerator getAndSet power betterCounterGenerator */
 
-
 const counterGenerator = () => {
   let count = 0;
   return function inner() {
     count++;
     return count;
-  }
-}
+  };
+};
 
 const getAndSet = () => {
   let data;
@@ -17,39 +16,38 @@ const getAndSet = () => {
     },
     get: function () {
       return data;
-    }
-  }
-}
+    },
+  };
+};
 
 const power = (exponent) => {
-  if (typeof exponent === 'number') {
+  if (typeof exponent === "number") {
     return (number) => {
       return number ** exponent;
     };
   } else {
     return NaN;
   }
-}
+};
 
 const betterCounterGenerator = (initial = 0) => {
   let count = initial;
-  if(typeof initial === "number"){
-    return{
-      up : function(){
+  if (typeof initial === "number") {
+    return {
+      up: function () {
         count++;
         return count;
       },
-      down : function(){
+      down: function () {
         count--;
         return count;
       },
-      reset : function(){
+      reset: function () {
         count = initial;
         return count;
-      }
-    }
-  }else{
+      },
+    };
+  } else {
     return NaN;
   }
-  
-}
+};

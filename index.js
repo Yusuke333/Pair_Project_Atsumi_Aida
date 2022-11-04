@@ -265,3 +265,5 @@ class Gacha {
 
 const gacha = new Gacha();
 gacha.init();
+
+// exports = { Gacha };

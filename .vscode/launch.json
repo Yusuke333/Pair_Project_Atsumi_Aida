@@ -5,17 +5,9 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Attach to Chrome",
-      "port": 9222,
-      "request": "attach",
       "type": "chrome",
-      "webRoot": "${workspaceFolder}/index.js"
-    },
-
-    {
-      "name": "Launch Chrome",
       "request": "launch",
-      "type": "chrome",
+      "name": "Launch Chrome against localhost",
       "url": "http://127.0.0.1:5500/index.html",
       "webRoot": "${workspaceFolder}"
     }
